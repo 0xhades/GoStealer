@@ -1,7 +1,5 @@
 # GoStealer
 
-![stealer](https://i.imgur.com/JM96XCB.png)
-
 #### **a cookies/passwords stealer written in GoLang**
 
 ### Libraries
