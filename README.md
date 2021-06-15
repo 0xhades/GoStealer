@@ -20,7 +20,7 @@ go get github.com/tidwall/gjson
 go get github.com/zalando/go-keyring
 go get golang.org/x/crypto/pbkdf2
 ```
-**- go-sqlite3 needs [gcc on windows](http://mingw-w64.org) cause it depends on some c librares**
+**- go-sqlite3 needs [gcc on windows](http://mingw-w64.org) cause it depends on some c librares, install it, then make its bin folder PATH as a new environment variable**
 
 ## setup
 
