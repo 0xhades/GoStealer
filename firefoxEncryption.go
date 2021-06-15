@@ -12,12 +12,10 @@ import (
 	"errors"
 	"hash"
 
-	"Cobra/IoenQn"
-
 	_ "github.com/mattn/go-sqlite3"
 )
 
-var passwordCheck = IoenQn.OaQ7ml0()
+var passwordCheck = OaQ7ml0()
 
 // Profile is the Firefox profile.
 type Profile struct {
@@ -72,7 +70,7 @@ type SaltValue struct {
 // New opens a firefox profile.  Will return error if master key is wrong.
 func New(profilePath string, masterPassword []byte) (*Profile, error) {
 	// open key database
-	db, err := sql.Open(IoenQn.UNCbua1(), profilePath)
+	db, err := sql.Open(UNCbua1(), profilePath)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +91,7 @@ func New(profilePath string, masterPassword []byte) (*Profile, error) {
 }
 
 func (p *Profile) isMasterPassValid(db *sql.DB, masterPassword []byte) error {
-	var stmt = IoenQn.M2oYBh2()
+	var stmt = M2oYBh2()
 	row := db.QueryRow(stmt)
 
 	var item2 []byte
@@ -111,7 +109,7 @@ func (p *Profile) isMasterPassValid(db *sql.DB, masterPassword []byte) error {
 		return err
 	}
 	if bytes.Compare(pt, []byte(passwordCheck)) != 0 {
-		return errors.New(IoenQn.J3haXV3())
+		return errors.New(J3haXV3())
 	}
 	// master password ok
 	p.masterPasswd = masterPassword
@@ -120,7 +118,7 @@ func (p *Profile) isMasterPassValid(db *sql.DB, masterPassword []byte) error {
 }
 
 func (p *Profile) masterKey(db *sql.DB) ([]byte, error) {
-	var stmt = IoenQn.Nv1LGH4()
+	var stmt = Nv1LGH4()
 
 	var a11 []byte
 	rows, err := db.Query(stmt)
