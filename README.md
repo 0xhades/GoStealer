@@ -3,15 +3,15 @@
 #### **a cookies/passwords stealer written in GoLang support `FireFox` and `Chrome`**
 
 ### Libraries
-> (github.com/zalando/go-keyring)[https://github.com/zalando/go-keyring]
+> https://github.com/zalando/go-keyring
 >
-> (github.com/Pallinder/go-randomdata)[github.com/Pallinder/go-randomdata]
+> https://github.com/Pallinder/go-randomdata
 >
-> (github.com/mattn/go-sqlite3)[github.com/mattn/go-sqlite3]
+> https://github.com/mattn/go-sqlite3
 >
-> (github.com/tidwall/gjson)[github.com/tidwall/gjson]
+> https://github.com/tidwall/gjson
 >
-> (golang.org/x/crypto/pbkdf2)[golang.org/x/crypto/pbkdf2]
+> https://golang.org/x/crypto/pbkdf2
 
 ```
 go get github.com/Pallinder/go-randomdata
