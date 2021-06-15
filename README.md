@@ -1,6 +1,6 @@
 # GoStealer
 
-#### **a cookies/passwords stealer written in GoLang**
+#### **a cookies/passwords stealer written in GoLang support `FireFox` and `Chrome`**
 
 ### Libraries
 > github.com/zalando/go-keyring
