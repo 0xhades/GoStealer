@@ -34,6 +34,6 @@ go get golang.org/x/crypto/pbkdf2
 
 > Instagram: [@0xhades](https://instagram.com/0xhades)
 
-**- If you really want the unobfuscated strings of the source code just tell me**
+**- If you really want the unobfuscated strings of the source code just tell me to add it, cause i'm lazy to do it right now**
 
 
