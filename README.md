@@ -1,6 +1,6 @@
 # GoStealer
 
-#### **a cookies/passwords stealer written in GoLang support `FireFox` and `Chrome` with Telegram**
+#### **a cookies/passwords stealer written in GoLang support `FireFox` and `Chrome` using Telegram**
 
 ### Libraries
 > https://github.com/zalando/go-keyring
