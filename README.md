@@ -3,7 +3,7 @@
 #### **a cookies/passwords stealer written in GoLang support `FireFox` and `Chrome`**
 
 ### Libraries
-> (github.com/zalando/go-keyring)[github.com/zalando/go-keyring]
+> (github.com/zalando/go-keyring)[https://github.com/zalando/go-keyring]
 >
 > (github.com/Pallinder/go-randomdata)[github.com/Pallinder/go-randomdata]
 >
