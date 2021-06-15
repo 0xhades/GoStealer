@@ -24,7 +24,7 @@ go get golang.org/x/crypto/pbkdf2
 
 ## setup
 
-> to change the files destination use need to use [mumbojumbo](https://github.com/jeromer/mumbojumbo) tool to obfuscate the strings. 
+> to change the files destination you need to use [mumbojumbo](https://github.com/jeromer/mumbojumbo) tool to obfuscate the strings. 
 >
 > change the function called `ERxr8Z1` in `RiC4ef/RiC4ef.go` with the obfuscated "bot token of telegram you just made" by [mumbojumbo](https://github.com/jeromer/mumbojumbo).
 >
