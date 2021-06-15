@@ -42,11 +42,11 @@ GOOS=windows ARCH=amd64 go build -ldflags "-s -w -H=windowsgui" -o stealer.exe .
 ```
 ### Linux
 ```
-GOOS=linux ARCH=386 go build -ldflags "-s -w -H=windowsgui" -o stealer .
+GOOS=linux ARCH=386 go build -ldflags "-s -w" -o stealer .
 ```
 ### MacOS
 ```
-GOOS=darwin ARCH=amd64 go build -ldflags "-s -w -H=windowsgui" -o stealer .
+GOOS=darwin ARCH=amd64 go build -ldflags "-s -w" -o stealer .
 ```
 
 ## Contact
